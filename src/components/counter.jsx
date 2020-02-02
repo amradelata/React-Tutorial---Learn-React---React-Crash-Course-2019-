@@ -4,28 +4,29 @@
   class Counter extends Component {
     state = {
       count : 0,
-       imgUrl : 'https://images.pexels.com/photos/3576955/pexels-photo-3576955.jpeg?auto=compress&cs=tinysrgb&dpr=1&w=500',
-      tags: [{body: 'body1'},{body: 'body2'},{body: 'body3'}]
+      tags: []
+      // {body: 'body1'},{body: 'body2'},{body: 'body3'}
     };
-    
+    renderTags() {
+      // another way to to do if condition 
+      if(this.state.tags.length === 0) return <p>ther are no tags</p>
+      
+      return <ul> { this.state.tags.map(tag => <li key={tag.body}>{tag.body}</li>)}</ul>
+         
+        
+    }
     render() {
-      let classes = "badge-";
-      classes += this.state.count === 0 ? 'warning' :  'primary';
+
       return (
         <div>
-          <img src={this.state.imgUrl}/> 
-          <span className={classes}>{this.formatCount()}</span>
-          <button  className="btn btn-secondary btn-sm">Increment</button>
-          <ul>
-      { this.state.tags.map(tag => <li key={tag.body}>{tag.body}</li>)}
-          </ul>
+         {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
+          {/* how we do if condition */}
+          {this.state.tags.length === 0 &&<p>ther are no tags</p>}
+          {this.renderTags()}
         </div>
       );
     }
-    formatCount() {
-  const { count } = this.state;
-  return count === 0 ? 'Zero' : count;
-}
+
   }
 
 

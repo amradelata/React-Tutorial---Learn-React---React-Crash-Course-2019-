@@ -18,11 +18,13 @@
         this.setState({value: this.state.value + 1}) 
       }
     render() {
+      console.log(this.props.value)
       let classes = "m-2 p-2 badge-";
       classes += this.state.count === 0 ? 'warning' :  'primary';
       return (
         <div>
-          <span className={classes}>{this.state.count}</span>
+      {this.props.children}
+          <span className={classes}>{this.state.value}</span>
           <button onClick={this.handelIncrament} className="btn btn-secondary btn-sm">Increment</button>
          {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
           {/* how we do if condition */}

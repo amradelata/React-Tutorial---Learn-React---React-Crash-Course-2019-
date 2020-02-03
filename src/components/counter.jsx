@@ -14,9 +14,12 @@
       };
 
 
-      handelIncrament = () =>{
+        handelIncrament = () =>{
+
         this.setState({value: this.state.value + 1}) 
-      }
+        }
+
+
     render() {
       console.log(this.props.value)
       let classes = "m-2 p-2 badge-";
@@ -26,6 +29,7 @@
       {this.props.children}
           <span className={classes}>{this.state.value}</span>
           <button onClick={this.handelIncrament} className="btn btn-secondary btn-sm">Increment</button>
+          <button onClick={this.props.onDelet} className="btn btn-danger btn-sm">delet</button>
          {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
           {/* how we do if condition */}
           {this.state.tags.length === 0 &&<p>ther are no tags</p>}

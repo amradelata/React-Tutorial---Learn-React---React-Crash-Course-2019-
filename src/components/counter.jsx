@@ -12,16 +12,11 @@
 
       return <ul> { this.state.tags.map(tag => <li key={tag.body}>{tag.body}</li>)}</ul>
       };
-      constructor(){
-        super();
-        this.handelIncrament = this.handelIncrament.bind(this)
-      }
-      handelIncrament = product =>{
-        console.log(product)
-        // console.log(this.state.count+=1)
-        this.setState({count: this.state.count+=1})
-        // this.state.count+=1 
-      }
+      // constructor(){
+      //   super();
+      //   this.handelIncrament = this.handelIncrament.bind(this)
+      // }
+
       // doHandelaincrument = () =>{
       //   this.handelIncrament ({ id: 1});
       // }
@@ -31,7 +26,7 @@
       return (
         <div>
           <span className={classes}>{this.state.count}</span>
-          <button onClick={ ()=> this.handelIncrament(product)} className="btn btn-secondary btn-sm">Increment</button>
+          <button className="btn btn-secondary btn-sm">Increment</button>
          {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
           {/* how we do if condition */}
           {this.state.tags.length === 0 &&<p>ther are no tags</p>}

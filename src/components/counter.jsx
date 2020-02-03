@@ -3,7 +3,7 @@
 
   class Counter extends Component {
     state = {
-      count : 10,
+      value : this.props.value,
       tags: [ {body: 'body1'},{body: 'body2'},{body: 'body3'}]
     };
       renderTags() {
@@ -12,21 +12,18 @@
 
       return <ul> { this.state.tags.map(tag => <li key={tag.body}>{tag.body}</li>)}</ul>
       };
-      // constructor(){
-      //   super();
-      //   this.handelIncrament = this.handelIncrament.bind(this)
-      // }
 
-      // doHandelaincrument = () =>{
-      //   this.handelIncrament ({ id: 1});
-      // }
+
+      handelIncrament = () =>{
+        this.setState({value: this.state.value + 1}) 
+      }
     render() {
       let classes = "m-2 p-2 badge-";
       classes += this.state.count === 0 ? 'warning' :  'primary';
       return (
         <div>
           <span className={classes}>{this.state.count}</span>
-          <button className="btn btn-secondary btn-sm">Increment</button>
+          <button onClick={this.handelIncrament} className="btn btn-secondary btn-sm">Increment</button>
          {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
           {/* how we do if condition */}
           {this.state.tags.length === 0 &&<p>ther are no tags</p>}

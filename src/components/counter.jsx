@@ -18,7 +18,9 @@
         this.handelIncrament = this.handelIncrament.bind(this)
       }
       handelIncrament = () =>{
-        console.log(this.state.count+=1)
+        // console.log(this.state.count+=1)
+        this.setState({count: this.state.count+=1})
+        
         // this.state.count+=1 
       }
     render() {

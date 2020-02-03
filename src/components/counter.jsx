@@ -3,7 +3,7 @@
 
   class Counter extends Component {
     state = {
-      value : this.props.value,
+      value : this.props.counter.value,
       tags: [ {body: 'body1'},{body: 'body2'},{body: 'body3'}]
     };
       renderTags() {
@@ -21,7 +21,6 @@
 
 
     render() {
-      console.log(this.props.value)
       let classes = "m-2 p-2 badge-";
       classes += this.state.count === 0 ? 'warning' :  'primary';
       return (
@@ -29,7 +28,7 @@
       {this.props.children}
           <span className={classes}>{this.state.value}</span>
           <button onClick={this.handelIncrament} className="btn btn-secondary btn-sm">Increment</button>
-          <button onClick={this.props.onDelet} className="btn btn-danger btn-sm">delet</button>
+          <button onClick={() => this.props.onDelet(this.props.counter.id)} className="btn btn-danger btn-sm">delet</button>
          {/* if this true this.state.tags.length === 0  do this<p>ther are no tags</p> */}
           {/* how we do if condition */}
           {this.state.tags.length === 0 &&<p>ther are no tags</p>}

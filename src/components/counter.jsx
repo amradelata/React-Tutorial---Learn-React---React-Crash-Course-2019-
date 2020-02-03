@@ -3,9 +3,9 @@
 
   class Counter extends Component {
     state = {
-      count : 0,
-      tags: []
-      // {body: 'body1'},{body: 'body2'},{body: 'body3'}
+      count : 10,
+      tags: [ {body: 'body1'},{body: 'body2'},{body: 'body3'}]
+      
     };
       renderTags() {
       // another way to to do if condition 
@@ -13,8 +13,13 @@
 
       return <ul> { this.state.tags.map(tag => <li key={tag.body}>{tag.body}</li>)}</ul>
       };
-      handelIncrament(){
-        // this.state.count = this.state.count +1
+      constructor(){
+        super();
+        this.handelIncrament = this.handelIncrament.bind(this)
+      }
+      handelIncrament = () =>{
+        console.log(this.state.count+=1)
+        // this.state.count+=1 
       }
     render() {
       let classes = "m-2 p-2 badge-";

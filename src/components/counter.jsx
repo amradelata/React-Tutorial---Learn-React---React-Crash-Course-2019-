@@ -7,7 +7,7 @@
       return (
         <div>
       {this.props.children}
-      <span className={classes}>{this.props.counter.value}</span>
+          <span className={classes}>{this.props.counter.value}</span>
           <button onClick={() => this.props.onIncrment(this.props.counter)} className="btn btn-secondary btn-sm">Increment</button>
           <button onClick={() => this.props.onDelet(this.props.counter.id)} className="btn btn-danger btn-sm">delet</button>
  

@@ -11,12 +11,21 @@ class Counters extends Component {
       {id: 5 , value: 0},
     ]
    };
+   //Lifecycle Hooks on update
+   constructor (){
+     super();
+     console.log('app-constructor')
+   }
+   //Lifecycle Hooks after component renderend  {perfect for ajax}
+   componentDidMount(){
+      console.log('app-mounted')
+   };
     handelDelet = (counterId) => {
       // console.log('delet', counterId)
       const counters =this.state.counters.filter(c => c.id != counterId);
       this.setState({counters: counters})
       // if the key like the value we can do it like this  this.setState({counters})
-    }
+    };
     handelreset = () =>{
       const counters =  this.state.counters.map(c => {
         c.value = 0;
@@ -31,8 +40,11 @@ class Counters extends Component {
       counters[index] = {...counter};
       counters[index].value++;
       this.setState({counters})
-    }
+    };
+// Lifecycle Hooks render
   render() {
+        console.log('app-render')
+
     return ( <div>
       <button onClick={this.handelreset} className="btn btn-primary btn-sm">reset</button>
 
